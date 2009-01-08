@@ -52,14 +52,27 @@
 		}
 		
 		public function manipulatePageData($context) {
+		// Events -------------------------------------------------------------
+			
+			$events = $context['page_data']['events'];
+			$events = explode(',', $events);
+			$events = array_merge($events, $this->getEventNames());
+			$events = array_unique($events);
+			$events = implode(',', $events);
+			
+		// Datasources --------------------------------------------------------
+			
 			$datasources = $context['page_data']['data_sources'];
 			$datasources = explode(',', $datasources);
-			$datasources = array_merge($datasources, $this->getDatasources());
+			$datasources = array_merge($datasources, $this->getDSNames());
 			$datasources = array_unique($datasources);
 			$datasources = implode(',', $datasources);
 			
+		// Apply --------------------------------------------------------------
+			
 			// Ignore excluded pages:
-			if (!$this->isPageSelected($context['page_data']['id'])) {
+			if (!$this->isDSPageSelected($context['page_data']['id'])) {
+				$context['page_data']['events'] = $events;
 				$context['page_data']['data_sources'] = $datasources;
 			}
 		}
