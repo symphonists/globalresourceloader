@@ -94,10 +94,12 @@
 		}
 
 		public function setEventNames($events) {
-			$events = implode(',', $events);
+			if(is_array($events)) {
+				$events = implode(',', $events);
 
-			$this->_Parent->Configuration->set('event-names', $events, 'globalresourceloader');
-			$this->_Parent->saveConfig();
+				$this->_Parent->Configuration->set('event-names', $events, 'globalresourceloader');
+				$this->_Parent->saveConfig();
+			}
 		}
 
 		public function setEventPages($pages) {
