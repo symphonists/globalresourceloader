@@ -10,12 +10,12 @@
 		public function about() {
 			return array(
 				'name'			=> 'Global Resource Loader',
-				'version'		=> '1.001',
-				'release-date'	=> '2009-01-08',
+				'version'		=> '1.0.2',
+				'release-date'	=> '2010-01-07',
 				'author'		=> array(
 					'name'			=> 'Rowan Lewis',
-					'website'		=> 'http://pixelcarnage.com',
-					'email'			=> 'rowan@pixelcarnage.com'
+					'website'		=> 'http://rowanlewis.com',
+					'email'			=> 'me@rowanlewis.com'
 				),
 				'description'	=> 'Allows you to select datasources and events to be used on all pages.'
 	 		);
