@@ -144,7 +144,7 @@
 				);
 			}
 			
-			$section = Widget::Label('Selected');
+			$section = Widget::Label(__('Selected'));
 			$section->appendChild(Widget::Select(
 				'settings[ds-names][]', $options, array(
 					'multiple'	=> 'multiple'
