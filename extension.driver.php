@@ -44,8 +44,8 @@
 		public function fetchNavigation() {
 			return array(
 				array(
-					'location'	=> 'Blueprints',
-					'name'	=> 'Globals',
+					'location' => __('Blueprints'),
+					'name'	=> __('Globals'),
 					'link'	=> '/preferences/'
 				)
 			);
