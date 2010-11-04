@@ -136,10 +136,12 @@
 		}
 
 		public function setDSNames($datasources) {
-			$datasources = implode(',', $datasources);
-
-			$this->_Parent->Configuration->set('ds-names', $datasources, 'globalresourceloader');
-			$this->_Parent->saveConfig();
+		    if(is_array($datasources)) {
+			    $datasources = implode(',', $datasources);
+                
+			    $this->_Parent->Configuration->set('ds-names', $datasources, 'globalresourceloader');
+			    $this->_Parent->saveConfig();
+		    }
 		}
 
 		public function setDSPages($pages) {
