@@ -10,8 +10,8 @@
 		public function about() {
 			return array(
 				'name'			=> 'Global Resource Loader',
-				'version'		=> '1.0.2',
-				'release-date'	=> '2010-01-07',
+				'version'		=> '1.0.3',
+				'release-date'		=> '2010-01-07',
 				'author'		=> array(
 					'name'			=> 'Rowan Lewis',
 					'website'		=> 'http://rowanlewis.com',
@@ -44,9 +44,9 @@
 		public function fetchNavigation() {
 			return array(
 				array(
-					'location'	=> 'Blueprints',
-					'name'	=> 'Globals',
-					'link'	=> '/preferences/'
+					'location'	=> __('Blueprints'),
+					'name'		=> __('Globals'),
+					'link'		=> '/preferences/'
 				)
 			);
 		}
@@ -98,8 +98,11 @@
 				$events = implode(',', $events);
 
 				$this->_Parent->Configuration->set('event-names', $events, 'globalresourceloader');
-				$this->_Parent->saveConfig();
 			}
+			else {
+				$this->_Parent->Configuration->remove('event-names', 'globalresourceloader');
+			}
+			$this->_Parent->saveConfig();
 		}
 
 		public function setEventPages($pages) {
@@ -107,8 +110,11 @@
 				$pages = implode(',', $pages);
 
 				$this->_Parent->Configuration->set('event-pages', $pages, 'globalresourceloader');
-				$this->_Parent->saveConfig();
 			}
+			else {
+				$this->_Parent->Configuration->remove('event-pages', 'globalresourceloader');
+			}
+			$this->_Parent->saveConfig();
 		}
 
 		public function isEventNameSelected($handle) {
@@ -136,9 +142,14 @@
 		}
 
 		public function setDSNames($datasources) {
-			$datasources = implode(',', $datasources);
+			if(is_array($datasources)) {
+				$datasources = implode(',', $datasources);
 
-			$this->_Parent->Configuration->set('ds-names', $datasources, 'globalresourceloader');
+				$this->_Parent->Configuration->set('ds-names', $datasources, 'globalresourceloader');
+			}
+			else {
+				$this->_Parent->Configuration->remove('ds-names', 'globalresourceloader');
+			}
 			$this->_Parent->saveConfig();
 		}
 
@@ -147,8 +158,11 @@
 				$pages = implode(',', $pages);
 
 				$this->_Parent->Configuration->set('ds-pages', $pages, 'globalresourceloader');
-				$this->_Parent->saveConfig();
 			}
+			else {
+				$this->_Parent->Configuration->remove('ds-pages', 'globalresourceloader');
+			}
+			$this->_Parent->saveConfig();
 		}
 
 		public function isDSNameSelected($handle) {

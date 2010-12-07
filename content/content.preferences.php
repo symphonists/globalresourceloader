@@ -12,25 +12,22 @@
 			$bIsWritable = true;
 			
 		    if (!is_writable(CONFIG)) {
-		        $this->pageAlert('
-					The Symphony configuration file, <code>/manifest/config.php</code>,
-					is not writable. You will not be able to save changes to
-					preferences.', AdministrationPage::PAGE_ALERT_ERROR
+		        $this->pageAlert(__('The Symphony configuration file, <code>/manifest/config.php</code>, is not writable. You will not be able to save changes to preferences.'), AdministrationPage::PAGE_ALERT_ERROR
 				);
 		        $bIsWritable = false;
 		    }
 			
 			$this->setPageType('form');
-			$this->setTitle('Symphony &ndash; Global Resources');
+			$this->setTitle('Symphony &ndash; ' . __('Global Resources'));
 			
-			$this->appendSubheading('Global Resources');
+			$this->appendSubheading(__('Global Resources'));
 			
 		// Events --------------------------------------------------------
 			
 			$container = new XMLElement('fieldset');
 			$container->setAttribute('class', 'settings');
 			$container->appendChild(
-				new XMLElement('legend', 'Events')
+				new XMLElement('legend', __('Events'))
 			);
 			
 			$group = new XMLElement('div');
@@ -47,7 +44,7 @@
 			$container = new XMLElement('fieldset');
 			$container->setAttribute('class', 'settings');
 			$container->appendChild(
-				new XMLElement('legend', 'Datasources')
+				new XMLElement('legend', __('Datasources'))
 			);
 			
 			$group = new XMLElement('div');
@@ -66,7 +63,7 @@
 			
 			$attr = array('accesskey' => 's');
 			if (!$bIsWritable) $attr['disabled'] = 'disabled';
-			$div->appendChild(Widget::Input('action[save]', 'Save Changes', 'submit', $attr));
+			$div->appendChild(Widget::Input('action[save]', __('Save Changes'), 'submit', $attr));
 
 			$this->Form->appendChild($div);
 		}
@@ -88,7 +85,7 @@
 				);
 			}
 			
-			$section = Widget::Label('Selected');
+			$section = Widget::Label(__('Selected'));
 			$section->appendChild(Widget::Select(
 				'settings[event-names][]', $options, array(
 					'multiple'	=> 'multiple'
@@ -117,7 +114,7 @@
 				);
 			}
 			
-			$section = Widget::Label('Excluded Pages');
+			$section = Widget::Label(__('Excluded Pages'));
 			$section->appendChild(Widget::Select(
 				'settings[event-pages][]', $options, array(
 					'multiple'	=> 'multiple'
@@ -144,7 +141,7 @@
 				);
 			}
 			
-			$section = Widget::Label('Selected');
+			$section = Widget::Label(__('Selected'));
 			$section->appendChild(Widget::Select(
 				'settings[ds-names][]', $options, array(
 					'multiple'	=> 'multiple'
@@ -173,7 +170,7 @@
 				);
 			}
 			
-			$section = Widget::Label('Excluded Pages');
+			$section = Widget::Label(__('Excluded Pages'));
 			$section->appendChild(Widget::Select(
 				'settings[ds-pages][]', $options, array(
 					'multiple'	=> 'multiple'
