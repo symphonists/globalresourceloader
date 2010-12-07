@@ -11,7 +11,7 @@
 			return array(
 				'name'			=> 'Global Resource Loader',
 				'version'		=> '1.0.3',
-				'release-date'		=> '2010-01-07',
+				'release-date'		=> '2010-12-07',
 				'author'		=> array(
 					'name'			=> 'Rowan Lewis',
 					'website'		=> 'http://rowanlewis.com',
