@@ -87,13 +87,13 @@
 		public function setConfig($name, $values) {
 			if (is_array($values)) {
 				$values = implode(',', $values);
+				$this->_Parent->Configuration->set($name, $values, 'globalresourceloader');
 			}
 			
 			else {
-				$values = null;
+				$this->_Parent->Configuration->remove($name, 'globalresourceloader');
 			}
 			
-			$this->_Parent->Configuration->set($name, $values, 'globalresourceloader');
 			$this->_Parent->saveConfig();
 		}
 		
@@ -115,6 +115,7 @@
 		
 		public function setEventPages($values) {
 			$this->setConfig('event-pages', $values);
+
 		}
 		
 		public function isEventNameSelected($handle) {
@@ -161,5 +162,5 @@
 			return in_array($id, $pages);
 		}
 	}
-	
-?>
+
+

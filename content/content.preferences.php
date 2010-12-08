@@ -12,11 +12,7 @@
 			$bIsWritable = true;
 			
 		    if (!is_writable(CONFIG)) {
-		        $this->pageAlert(
-		        	__('The Symphony configuration file, <code>/manifest/config.php</code>,
-					is not writable. You will not be able to save changes to
-					preferences.'), AdministrationPage::PAGE_ALERT_ERROR
-				);
+		        $this->pageAlert(__('The Symphony configuration file, <code>/manifest/config.php</code>, is not writable. You will not be able to save changes to preferences.'), AdministrationPage::PAGE_ALERT_ERROR);
 		        $bIsWritable = false;
 		    }
 			
