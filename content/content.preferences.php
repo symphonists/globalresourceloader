@@ -5,10 +5,10 @@
 	require_once(TOOLKIT . '/class.eventmanager.php');	
 	
 	class contentExtensionGlobalResourceLoaderPreferences extends AdministrationPage {
-		protected $_driver;
+		protected $driver;
 		
 		public function __viewIndex() {
-			$this->_driver = $this->_Parent->ExtensionManager->create('globalresourceloader');
+			$this->driver = Symphony::ExtensionManager()->create('globalresourceloader');
 			$bIsWritable = true;
 			
 		    if (!is_writable(CONFIG)) {
@@ -72,12 +72,12 @@
 	-------------------------------------------------------------------------*/
 		
 		public function __viewIndexEventNames($context) {
-			$EventManager = new EventManager($this->_Parent);
+			$EventManager = Symphony::ExtensionManager();
 			$events = $EventManager->listAll();
 			$options = array();
 			
 			foreach ($events as $event) {
-				$selected = $this->_driver->isEventNameSelected($event['handle']);
+				$selected = $this->driver->isEventNameSelected($event['handle']);
 				
 				$options[] = array(
 					$event['handle'], $selected, $event['name']
@@ -95,7 +95,7 @@
 		}
 		
 		public function __viewIndexEventPages($context) {
-			$pages = $this->_Parent->Database->fetch("
+			$pages = Symphony::Database()->fetch("
 				SELECT
 					p.*
 				FROM
@@ -106,10 +106,10 @@
 			$options = array();
 			
 			foreach ($pages as $page) {
-				$selected = $this->_driver->isEventPageSelected($page['id']);
+				$selected = $this->driver->isEventPageSelected($page['id']);
 				
 				$options[] = array(
-					$page['id'], $selected, '/' . $this->_Parent->resolvePagePath($page['id'])
+					$page['id'], $selected, '/' . Symphony::Engine()->resolvePagePath($page['id'])
 				);
 			}
 			
@@ -128,12 +128,12 @@
 	-------------------------------------------------------------------------*/
 		
 		public function __viewIndexDSNames($context) {
-			$DSManager = new DatasourceManager($this->_Parent);
+			$DSManager = new DatasourceManager(Symphony::Engine());
 			$datasources = $DSManager->listAll();
 			$options = array();
 			
 			foreach ($datasources as $datasource) {
-				$selected = $this->_driver->isDSNameSelected($datasource['handle']);
+				$selected = $this->driver->isDSNameSelected($datasource['handle']);
 				
 				$options[] = array(
 					$datasource['handle'], $selected, $datasource['name']
@@ -151,7 +151,7 @@
 		}
 		
 		public function __viewIndexDSPages($context) {
-			$pages = $this->_Parent->Database->fetch("
+			$pages = Symphony::Database()->fetch("
 				SELECT
 					p.*
 				FROM
@@ -162,10 +162,10 @@
 			$options = array();
 			
 			foreach ($pages as $page) {
-				$selected = $this->_driver->isDSPageSelected($page['id']);
+				$selected = $this->driver->isDSPageSelected($page['id']);
 				
 				$options[] = array(
-					$page['id'], $selected, '/' . $this->_Parent->resolvePagePath($page['id'])
+					$page['id'], $selected, '/' . Symphony::Engine()->resolvePagePath($page['id'])
 				);
 			}
 			
@@ -182,15 +182,15 @@
 		public function __actionIndex() {
 			$settings  = @$_POST['settings'];
 			
-			if (empty($this->_driver)) {
-				$this->_driver = $this->_Parent->ExtensionManager->create('globalresourceloader');
+			if (empty($this->driver)) {
+				$this->driver = Symphony::ExtensionManager()->create('globalresourceloader');
 			}
 			
 			if (@isset($_POST['action']['save'])) {
-				$this->_driver->setEventNames($settings['event-names']);
-				$this->_driver->setEventPages($settings['event-pages']);
-				$this->_driver->setDSNames($settings['ds-names']);
-				$this->_driver->setDSPages($settings['ds-pages']);
+				$this->driver->setEventNames($settings['event-names']);
+				$this->driver->setEventPages($settings['event-pages']);
+				$this->driver->setDSNames($settings['ds-names']);
+				$this->driver->setDSPages($settings['ds-pages']);
 			}
 		}
 	}

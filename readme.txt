@@ -1,10 +1,10 @@
 Global Resource Loader
 -------------------------------------------------------------------------------
 
-Version: 1.0.3
+Version: 1.0.4
 Author: Rowan Lewis <me@rowanlewis.com>
-Build Date: 2 December 2010
-Requirements: Symphony 2
+Build Date: 1 March 2011
+Requirements: Symphony 2.2
 
 
 Installation

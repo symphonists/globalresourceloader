@@ -10,8 +10,8 @@
 		public function about() {
 			return array(
 				'name'			=> 'Global Resource Loader',
-				'version'		=> '1.0.3',
-				'release-date'	=> '2010-12-02',
+				'version'		=> '1.0.4',
+				'release-date'	=> '2011-03-01',
 				'author'		=> array(
 					'name'			=> 'Rowan Lewis',
 					'website'		=> 'http://rowanlewis.com',
@@ -22,8 +22,8 @@
 		}
 		
 		public function uninstall() {
-			$this->_Parent->Configuration->remove('globalresourceloader');
-			$this->_Parent->saveConfig();
+			Symphony::Engine()->Configuration->remove('globalresourceloader');
+			Symphony::Engine()->saveConfig();
 		}
 		
 		public function getSubscribedDelegates() {
@@ -87,14 +87,14 @@
 		public function setConfig($name, $values) {
 			if (is_array($values)) {
 				$values = implode(',', $values);
-				$this->_Parent->Configuration->set($name, $values, 'globalresourceloader');
+				Symphony::Configuration()->set($name, $values, 'globalresourceloader');
 			}
 			
 			else {
-				$this->_Parent->Configuration->remove($name, 'globalresourceloader');
+				Symphony::Configuration()->remove($name, 'globalresourceloader');
 			}
 			
-			$this->_Parent->saveConfig();
+			Symphony::Engine()->saveConfig();
 		}
 		
 	/*-------------------------------------------------------------------------
@@ -102,11 +102,11 @@
 	-------------------------------------------------------------------------*/
 		
 		public function getEventNames() {
-			return explode(',', $this->_Parent->Configuration->get('event-names', 'globalresourceloader'));
+			return explode(',', Symphony::Configuration()->get('event-names', 'globalresourceloader'));
 		}
 		
 		public function getEventPages() {
-			return explode(',', $this->_Parent->Configuration->get('event-pages', 'globalresourceloader'));
+			return explode(',', Symphony::Configuration()->get('event-pages', 'globalresourceloader'));
 		}
 		
 		public function setEventNames($values) {
@@ -135,14 +135,15 @@
 	-------------------------------------------------------------------------*/
 		
 		public function getDSNames() {
-			return explode(',', $this->_Parent->Configuration->get('ds-names', 'globalresourceloader'));
+			return explode(',', Symphony::Configuration()->get('ds-names', 'globalresourceloader'));
 		}
 		
 		public function getDSPages() {
-			return explode(',', $this->_Parent->Configuration->get('ds-pages', 'globalresourceloader'));
+			return explode(',', Symphony::Configuration()->get('ds-pages', 'globalresourceloader'));
 		}
 		
 		public function setDSNames($values) {
+			//var_dump($values); exit;
 			$this->setConfig('ds-names', $values);
 		}
 		
