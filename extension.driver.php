@@ -10,8 +10,8 @@
 		public function about() {
 			return array(
 				'name'			=> 'Global Resource Loader',
-				'version'		=> '1.0.4',
-				'release-date'	=> '2011-03-01',
+				'version'		=> '1.0.5',
+				'release-date'	=> '2011-03-03',
 				'author'		=> array(
 					'name'			=> 'Rowan Lewis',
 					'website'		=> 'http://rowanlewis.com',

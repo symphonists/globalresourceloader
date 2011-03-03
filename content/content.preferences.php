@@ -72,7 +72,7 @@
 	-------------------------------------------------------------------------*/
 		
 		public function __viewIndexEventNames($context) {
-			$EventManager = Symphony::ExtensionManager();
+			$EventManager = new EventManager(Symphony::Engine());
 			$events = $EventManager->listAll();
 			$options = array();
 			
