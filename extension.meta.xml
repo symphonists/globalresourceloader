@@ -2,7 +2,7 @@
 <extension id="globalresourceloader" status="released" xmlns="http://symphony-cms.com/schemas/extension/1.0">
 	<name>Global Resource Loader</name>
 	<description>Saves time attaching resources to pages</description>
-	<repo type="github">https://github.com/rowan-lewis/globalresourceloader</repo>
+	<repo type="github">https://github.com/symphonists/globalresourceloader</repo>
 	<url type="discuss">http://symphony-cms.com/discuss/thread/599/</url>
 	<types>
 		<type>Interface</type>
