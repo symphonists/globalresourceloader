@@ -45,7 +45,7 @@
 			return array(
 				array(
 					'location'	=> __('Blueprints'),
-					'name'		=> __('Globals'),
+					'name'		=> __('Global Resources'),
 					'link'		=> '/preferences/'
 				)
 			);
