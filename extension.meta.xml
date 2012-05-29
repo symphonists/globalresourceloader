@@ -17,6 +17,10 @@
 		</author>
 	</authors>
 	<releases>
-		<release version="1.0.6" date="2011-03-01" min="2.2" />
+		<release version="1.1" date="2012-05-29" min="2.3">
+			- Update for Symphony 2.3 compatibility
+			- Use new `PageManager` functions
+		</release>
+		<release version="1.0.6" date="2011-03-01" min="2.2" max="2.2.x" />
 	</releases>
 </extension>
