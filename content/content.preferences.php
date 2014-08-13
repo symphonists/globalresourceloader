@@ -17,6 +17,12 @@
 				$bIsWritable = false;
 			}
 
+			if(isset($this->_context[1]) == 'saved') {
+				$this->pageAlert(
+					__('Global Resource Loader settings updated at %s.', array(Widget::Time()->generate()))
+					, Alert::SUCCESS);
+			}
+
 			$this->setPageType('form');
 			$this->setTitle('Symphony &ndash; ' . __('Global Resources'));
 
@@ -180,6 +186,9 @@
 				$this->driver->setEventPages($settings['event-pages']);
 				$this->driver->setDSNames($settings['ds-names']);
 				$this->driver->setDSPages($settings['ds-pages']);
+
+				// "Trick" symphony to use context. RE: #9
+				redirect(SYMPHONY_URL . '/extension/globalresourceloader/preferences/index/saved/');
 			}
 		}
 	}
