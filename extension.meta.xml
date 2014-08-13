@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<extension id="globalresourceloader" status="released" xmlns="http://symphony-cms.com/schemas/extension/1.0">
+<extension id="globalresourceloader" status="released" xmlns="http://getsymphony.com/schemas/extension/1.0">
 	<name>Global Resource Loader</name>
 	<description>Saves time attaching resources to pages</description>
 	<repo type="github">https://github.com/symphonists/globalresourceloader</repo>
-	<url type="discuss">http://symphony-cms.com/discuss/thread/599/</url>
+	<url type="discuss">http://getsymphony.com/discuss/thread/599/</url>
 	<types>
 		<type>Interface</type>
 	</types>
