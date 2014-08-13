@@ -17,7 +17,7 @@
 		</author>
 	</authors>
 	<releases>
-		<release version="1.2" date="2014-08-13" min="2.4" max="2.4.x">
+		<release version="1.2" date="2014-08-13" min="2.4" max="2.5.x">
 			- [#9](https://github.com/symphonists/globalresourceloader/issues/9) Add save changes success state
 		</release>
 		<release version="1.1" date="2012-05-29" min="2.3" max="2.4.x">
